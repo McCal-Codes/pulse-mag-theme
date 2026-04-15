@@ -3,7 +3,7 @@ Theme Name: Pulse Mag
 Theme URI: https://pulsemag.example
 Author: Pulse Magazine
 Description: Block theme for Pulse Literary Magazine — front page and chrome aligned with apps/web (Vercel) layout and typography.
-Version: 0.2.6
+Version: 0.2.8
 Requires at least: 6.5
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -76,8 +76,16 @@ body::before {
   -webkit-backdrop-filter: blur(10px);
 }
 
+/* Hide accidental editor-inserted separators inside header chrome. */
+.pulse-site-header .wp-block-separator {
+  display: none;
+}
+
 .pulse-header-inner {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pulse-header-inner::after {
@@ -121,10 +129,16 @@ body::before {
   margin-right: auto;
 }
 
+.pulse-wordmark-row > * {
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+}
+
 .pulse-wordmark-star {
   font-size: 0.95rem;
   color: var(--pulse-nav);
   opacity: 0.9;
+  line-height: 1;
 }
 
 .pulse-wordmark .wp-block-site-title {
@@ -133,6 +147,13 @@ body::before {
 
 .pulse-wordmark-row .wp-block-site-title {
   flex: 0 0 auto;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0;
+}
+
+.pulse-wordmark-row .wp-block-site-title a {
+  display: inline-block;
 }
 
 .pulse-wordmark .wp-block-site-tagline {
@@ -155,6 +176,22 @@ body::before {
   box-shadow: 0 8px 20px -16px rgba(11, 20, 14, 0.28);
 }
 
+.pulse-main-nav .wp-block-navigation__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+}
+
+.pulse-main-nav .wp-block-navigation-item,
+.pulse-main-nav .wp-block-navigation-item__label,
+.pulse-main-nav .wp-block-navigation-link {
+  border: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
 .pulse-main-nav .wp-block-navigation-item__content {
   color: color-mix(in srgb, var(--pulse-ink) 88%, transparent);
   font-size: 0.88rem;
@@ -164,13 +201,20 @@ body::before {
   border: 0 !important;
   box-shadow: none !important;
   border-radius: 999px;
-  padding: 0.38rem 0.65rem;
+  padding: 0.42rem 0.82rem;
+  background: color-mix(in srgb, #ffffff 66%, var(--pulse-paper-soft));
+  box-shadow: inset 0 0 0 1px rgba(11, 20, 14, 0.08);
   transition: color 0.2s ease, background-color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.pulse-main-nav .wp-block-navigation-item__content::before,
+.pulse-main-nav .wp-block-navigation-item__content::after {
+  content: none !important;
 }
 
 .pulse-main-nav .wp-block-navigation-item__content:hover {
   color: var(--pulse-nav);
-  background: color-mix(in srgb, var(--pulse-paper-muted) 75%, #fff);
+  background: color-mix(in srgb, var(--pulse-paper-light) 80%, #fff);
   text-decoration: none !important;
 }
 
@@ -178,7 +222,8 @@ body::before {
 .pulse-main-nav .current-menu-ancestor > .wp-block-navigation-item__content,
 .pulse-main-nav .current_page_item > .wp-block-navigation-item__content {
   color: var(--pulse-nav);
-  background: color-mix(in srgb, var(--pulse-paper-deep) 45%, #fff);
+  background: color-mix(in srgb, var(--pulse-paper-deep) 55%, #fff);
+  box-shadow: inset 0 0 0 1px rgba(11, 20, 14, 0.14);
 }
 
 /* Mobile overlay: keep readable text on light panel */
@@ -929,6 +974,9 @@ body::before {
 
 .pulse-site-footer .wp-block-social-links {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   list-style: none;
   padding-left: 0;
   margin-top: 1.35rem;
@@ -937,17 +985,33 @@ body::before {
 }
 
 .pulse-site-footer .wp-block-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--pulse-ink);
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 999px;
+  overflow: hidden;
   box-shadow: 0 9px 20px rgba(11, 20, 14, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .pulse-site-footer .wp-block-social-link a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   background: var(--pulse-ink) !important;
   color: var(--pulse-bg) !important;
+  font-size: 0;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.pulse-site-footer .wp-block-social-link .wp-social-link-label {
+  display: none !important;
 }
 
 .pulse-site-footer .wp-block-social-link:hover {
@@ -956,6 +1020,8 @@ body::before {
 }
 
 .pulse-site-footer .wp-social-link svg {
+  display: block !important;
+  visibility: visible !important;
   width: 1.1rem;
   height: 1.1rem;
   fill: currentColor;
@@ -970,6 +1036,122 @@ body::before {
 .pulse-panel-tight {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.pulse-guidelines-accordion {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.pulse-guidelines-item {
+  border: 1px solid rgba(11, 20, 14, 0.12);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--pulse-paper-light) 75%, #fff);
+  overflow: hidden;
+}
+
+.pulse-guidelines-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.9rem 1rem;
+  color: var(--pulse-ink);
+  position: relative;
+}
+
+.pulse-guidelines-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.pulse-guidelines-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--pulse-nav);
+}
+
+.pulse-guidelines-item[open] summary::after {
+  content: "-";
+}
+
+.pulse-guidelines-item p {
+  margin: 0;
+  border-top: 1px solid rgba(11, 20, 14, 0.08);
+  padding: 0.85rem 1rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--pulse-gray-600);
+}
+
+.pulse-team-card {
+  height: 100%;
+}
+
+.pulse-team-avatar-wrap {
+  margin-bottom: 0.35rem;
+}
+
+.pulse-team-avatar {
+  margin: 0;
+}
+
+.pulse-team-avatar img {
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(11, 20, 14, 0.08);
+}
+
+.pulse-team-card .wp-block-post-title {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.05rem, 0.95rem + 0.25vw, 1.2rem);
+}
+
+.pulse-team-card .wp-block-post-title a {
+  text-decoration: none;
+}
+
+.pulse-team-card .wp-block-post-title a:hover,
+.pulse-team-card .wp-block-post-title a:focus-visible {
+  color: var(--pulse-nav);
+}
+
+.pulse-team-card .pulse-author-meta {
+  margin: 0.1rem 0;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.pulse-team-card .pulse-author-meta strong {
+  color: var(--pulse-ink);
+}
+
+.pulse-team-card .wp-block-post-excerpt__excerpt {
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.pulse-team-card .wp-block-post-excerpt__more-link {
+  display: inline-block;
+  margin-top: 0.2rem;
+  color: var(--pulse-nav);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pulse-team-card .wp-block-post-excerpt__more-link:hover,
+.pulse-team-card .wp-block-post-excerpt__more-link:focus-visible {
+  text-decoration: underline;
+}
+
+.pulse-panel .pulse-author-meta {
+  margin: 0.1rem 0;
+  text-align: center;
 }
 
 .pulse-footer-ornaments {

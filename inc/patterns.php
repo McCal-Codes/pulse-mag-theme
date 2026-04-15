@@ -290,6 +290,26 @@ function pulse_mag_register_patterns(): void
     );
 
     register_block_pattern(
+        'pulse-mag/submit-guidelines-accordion',
+        [
+            'title'       => __('Submit Guidelines Accordion', 'pulse-mag'),
+            'description' => __('Vercel-style expandable guidelines by submission type.', 'pulse-mag'),
+            'categories'  => ['pulse-mag-editorial'],
+            'content'     =>
+                '<!-- wp:group {"align":"wide","className":"pulse-panel pulse-flow","layout":{"type":"constrained"}} -->' .
+                '<div class="wp-block-group alignwide pulse-panel pulse-flow">' .
+                '<!-- wp:paragraph {"className":"pulse-kicker"} --><p class="pulse-kicker">Submission Categories</p><!-- /wp:paragraph -->' .
+                '<!-- wp:heading {"level":2} --><h2>Detailed Guidelines</h2><!-- /wp:heading -->' .
+                '<!-- wp:group {"className":"pulse-guidelines-accordion","layout":{"type":"constrained"}} --><div class="wp-block-group pulse-guidelines-accordion">' .
+                '<!-- wp:details {"className":"pulse-guidelines-item"} --><details class="wp-block-details pulse-guidelines-item"><summary>Art &amp; Photography</summary><p>Submit JPG or PNG files at 300 ppi. Name files with your work title. You may submit up to five pieces per cycle. We only consider work submitted through the official form.</p></details><!-- /wp:details -->' .
+                '<!-- wp:details {"className":"pulse-guidelines-item"} --><details class="wp-block-details pulse-guidelines-item"><summary>Short Stories &amp; Scripts</summary><p>Submit up to three pieces per cycle, each under 5,000 words. Upload PDF files only. Editors may request a Google Doc for collaborative developmental editing.</p></details><!-- /wp:details -->' .
+                '<!-- wp:details {"className":"pulse-guidelines-item"} --><details class="wp-block-details pulse-guidelines-item"><summary>Hybrid Submissions (Music, Dance, Multimedia)</summary><p>Audio/video submissions should be under five minutes with clear audio and 1080p video when applicable. We accept multiple genres and both staged and filmed performance formats.</p></details><!-- /wp:details -->' .
+                '</div><!-- /wp:group -->' .
+                '</div><!-- /wp:group -->',
+        ]
+    );
+
+    register_block_pattern(
         'pulse-mag/join-role-cards',
         [
             'title'       => __('Join Role Cards', 'pulse-mag'),
@@ -366,6 +386,60 @@ function pulse_mag_register_patterns(): void
                 '</div><!-- /wp:group -->' .
                 '<!-- wp:pattern {"slug":"pulse-mag/join-role-cards"} /-->' .
                 '<!-- wp:pattern {"slug":"pulse-mag/contact-strip"} /-->',
+        ]
+    );
+
+    register_block_pattern(
+        'pulse-mag/nav-primary-bar',
+        [
+            'title'       => __('Primary Nav Bar', 'pulse-mag'),
+            'description' => __('Reusable Pulse primary navigation bar for pages and template parts.', 'pulse-mag'),
+            'categories'  => ['pulse-mag-sections'],
+            'content'     =>
+                '<!-- wp:navigation {"className":"pulse-main-nav","overlayMenu":"mobile","ariaLabel":"Primary","layout":{"type":"flex","justifyContent":"center"}} -->' .
+                '<!-- wp:navigation-link {"label":"About","url":"/about/"} /-->' .
+                '<!-- wp:navigation-link {"label":"Issues","url":"/issues/"} /-->' .
+                '<!-- wp:navigation-link {"label":"News","url":"/news/"} /-->' .
+                '<!-- wp:navigation-link {"label":"Submit","url":"/submit/"} /-->' .
+                '<!-- wp:navigation-link {"label":"Events","url":"/events/"} /-->' .
+                '<!-- wp:navigation-link {"label":"Join","url":"/join/"} /-->' .
+                '<!-- /wp:navigation -->',
+        ]
+    );
+
+    register_block_pattern(
+        'pulse-mag/footer-brand-block',
+        [
+            'title'       => __('Footer Brand Block', 'pulse-mag'),
+            'description' => __('Reusable Pulse footer block with socials and brand line.', 'pulse-mag'),
+            'categories'  => ['pulse-mag-sections'],
+            'content'     =>
+                '<!-- wp:group {"className":"pulse-site-footer","layout":{"type":"constrained"}} -->' .
+                '<div class="wp-block-group pulse-site-footer">' .
+                '<!-- wp:group {"className":"pulse-footer-inner","layout":{"type":"constrained"}} -->' .
+                '<div class="wp-block-group pulse-footer-inner">' .
+                '<!-- wp:heading {"textAlign":"center","level":2} --><h2 class="wp-block-heading has-text-align-center">Stay In Tune</h2><!-- /wp:heading -->' .
+                '<!-- wp:social-links {"iconColor":"background","iconBackgroundColor":"ink","openInNewTab":true,"className":"pulse-footer-socials","layout":{"type":"flex","justifyContent":"center"}} -->' .
+                '<ul class="wp-block-social-links has-icon-color has-icon-background-color pulse-footer-socials">' .
+                '<!-- wp:social-link {"url":"https://instagram.com/pulseliterary","service":"instagram"} /-->' .
+                '<!-- wp:social-link {"url":"https://linkedin.com/company/pulse-literary-magazine","service":"linkedin"} /-->' .
+                '<!-- wp:social-link {"url":"https://pinterest.com/pulseliterary","service":"pinterest"} /-->' .
+                '<!-- wp:social-link {"url":"https://bsky.app/profile/pulseliterary.bsky.social","service":"chain","label":"Bluesky"} /-->' .
+                '<!-- wp:social-link {"url":"mailto:hello@pulseliterary.com","service":"mail"} /-->' .
+                '</ul>' .
+                '<!-- /wp:social-links -->' .
+                '<!-- wp:group {"className":"pulse-footer-wordmark-row","layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap"}} -->' .
+                '<div class="wp-block-group pulse-footer-wordmark-row">' .
+                '<!-- wp:paragraph {"className":"pulse-wordmark-star"} --><p class="pulse-wordmark-star">✦</p><!-- /wp:paragraph -->' .
+                '<!-- wp:paragraph {"className":"pulse-footer-wordmark-text"} --><p class="pulse-footer-wordmark-text">PULSE</p><!-- /wp:paragraph -->' .
+                '</div>' .
+                '<!-- /wp:group -->' .
+                '<!-- wp:paragraph {"align":"center","className":"pulse-footer-tagline"} --><p class="has-text-align-center pulse-footer-tagline">Literary &amp; Arts Magazine</p><!-- /wp:paragraph -->' .
+                '<!-- wp:shortcode {"className":"pulse-footer-copy"} -->[pulse_copyright_line]<!-- /wp:shortcode -->' .
+                '</div>' .
+                '<!-- /wp:group -->' .
+                '</div>' .
+                '<!-- /wp:group -->',
         ]
     );
 }

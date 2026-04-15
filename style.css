@@ -3,7 +3,7 @@ Theme Name: Pulse Mag
 Theme URI: https://pulsemag.example
 Author: Pulse Magazine
 Description: Block theme for Pulse Literary Magazine — front page and chrome aligned with apps/web (Vercel) layout and typography.
-Version: 0.2.3
+Version: 0.2.4
 Requires at least: 6.5
 Tested up to: 6.9
 Requires PHP: 8.1
@@ -13,15 +13,24 @@ Primary Branch: main
 */
 
 :root {
-  --pulse-bg: #f4f1ec;
-  --pulse-surface: #ffffff;
-  --pulse-ink: #0b140e;
+  --pulse-bg: #F4F1EC;
+  --pulse-surface: #FFFFFF;
+  --pulse-ink: #0B140E;
   --pulse-muted: #5b625d;
-  --pulse-accent: #3d1419;
-  --pulse-nav: #121b13;
-  --pulse-paper-soft: #e8e5e0;
-  --pulse-paper-deep: #ddd9d3;
-  --pulse-paper-muted: #edeae5;
+  --pulse-accent: #3D1419;
+  --pulse-nav: #121B13;
+  --pulse-paper: #F4F1EC;
+  --pulse-paper-light: #FAF9F7;
+  --pulse-paper-soft: #E8E5E0;
+  --pulse-paper-deep: #DDD9D3;
+  --pulse-paper-muted: #EDEAE5;
+  --pulse-ink-light: #1A2820;
+  --pulse-accent-light: #5A2A30;
+  --pulse-nav-light: #24302A;
+  --pulse-amber: #3D1419;
+  --pulse-fuchsia: #3D1419;
+  --pulse-verdant: #121B13;
+  --pulse-obsidian: #0B140E;
   --pulse-gray-600: #6b7280;
   --pulse-gray-400: #9ca3af;
 }
@@ -30,7 +39,7 @@ html {
   background:
     radial-gradient(circle at 12% 0%, rgba(18, 27, 19, 0.08), transparent 32%),
     radial-gradient(circle at 100% 10%, rgba(11, 20, 14, 0.05), transparent 24%),
-    linear-gradient(180deg, #faf9f7 0%, #f4f1ec 42%, #edeae5 100%);
+    linear-gradient(180deg, #FAF9F7 0%, #F4F1EC 42%, #EDEAE5 100%);
 }
 
 body {

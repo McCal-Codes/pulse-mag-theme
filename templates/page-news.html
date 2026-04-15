@@ -9,9 +9,19 @@
 		<!-- wp:heading {"textAlign":"center","level":1,"fontSize":"display"} -->
 		<h1 class="wp-block-heading has-text-align-center has-display-font-size">Pulse News</h1>
 		<!-- /wp:heading -->
-		<!-- wp:html -->
-		<div class="pulse-diamond-divider pulse-diamond-divider--after-title" aria-hidden="true"><span>◆</span><span>◆</span><span>◆</span></div>
-		<!-- /wp:html -->
+		<!-- wp:group {"className":"pulse-diamond-divider pulse-diamond-divider--after-title","layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+		<div class="wp-block-group pulse-diamond-divider pulse-diamond-divider--after-title" aria-hidden="true">
+			<!-- wp:separator {"className":"pulse-diamond-divider-line"} -->
+			<hr class="wp-block-separator has-alpha-channel-opacity pulse-diamond-divider-line"/>
+			<!-- /wp:separator -->
+			<!-- wp:paragraph {"className":"pulse-diamond-divider-glyph"} -->
+			<p class="pulse-diamond-divider-glyph">◆</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:separator {"className":"pulse-diamond-divider-line"} -->
+			<hr class="wp-block-separator has-alpha-channel-opacity pulse-diamond-divider-line"/>
+			<!-- /wp:separator -->
+		</div>
+		<!-- /wp:group -->
 		<!-- wp:paragraph {"align":"center"} -->
 		<p class="has-text-align-center">News, updates, and behind-the-scenes stories from the Pulse team.</p>
 		<!-- /wp:paragraph -->

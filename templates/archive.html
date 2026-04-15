@@ -7,9 +7,19 @@
     <p class="has-text-align-center pulse-kicker">Pulse News</p>
     <!-- /wp:paragraph -->
     <!-- wp:query-title {"type":"archive","textAlign":"center","level":1,"fontSize":"display"} /-->
-    <!-- wp:html -->
-    <div class="pulse-diamond-divider pulse-diamond-divider--after-title" aria-hidden="true"><span>◆</span><span>◆</span><span>◆</span></div>
-    <!-- /wp:html -->
+    <!-- wp:group {"className":"pulse-diamond-divider pulse-diamond-divider--after-title","layout":{"type":"flex","justifyContent":"center","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+    <div class="wp-block-group pulse-diamond-divider pulse-diamond-divider--after-title" aria-hidden="true">
+      <!-- wp:separator {"className":"pulse-diamond-divider-line"} -->
+      <hr class="wp-block-separator has-alpha-channel-opacity pulse-diamond-divider-line"/>
+      <!-- /wp:separator -->
+      <!-- wp:paragraph {"className":"pulse-diamond-divider-glyph"} -->
+      <p class="pulse-diamond-divider-glyph">◆</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:separator {"className":"pulse-diamond-divider-line"} -->
+      <hr class="wp-block-separator has-alpha-channel-opacity pulse-diamond-divider-line"/>
+      <!-- /wp:separator -->
+    </div>
+    <!-- /wp:group -->
     <!-- wp:term-description /-->
     <!-- wp:paragraph {"align":"center","className":"pulse-body-copy"} -->
     <p class="has-text-align-center pulse-body-copy">News, updates, and behind-the-scenes from the Pulse editorial team.</p>
@@ -20,10 +30,10 @@
   <!-- wp:query {"query":{"inherit":true,"perPage":1},"align":"wide","className":"pulse-blog-feature","layout":{"type":"default"}} -->
   <div class="wp-block-query">
     <!-- wp:post-template -->
-    <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"1.75rem"}}}} -->
-    <div class="wp-block-columns">
-      <!-- wp:column {"verticalAlignment":"center","width":"52%"} -->
-      <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:52%">
+    <!-- wp:columns {"className":"pulse-feature-columns"} -->
+    <div class="wp-block-columns pulse-feature-columns">
+      <!-- wp:column {"verticalAlignment":"center","className":"pulse-feature-col-main"} -->
+      <div class="wp-block-column is-vertically-aligned-center pulse-feature-col-main">
     <!-- wp:group {"className":"pulse-panel pulse-flow","layout":{"type":"constrained"}} -->
     <div class="wp-block-group pulse-panel pulse-flow">
       <!-- wp:post-title {"isLink":true,"level":2} /-->
@@ -40,8 +50,8 @@
     <!-- /wp:group -->
       </div>
       <!-- /wp:column -->
-      <!-- wp:column {"width":"48%"} -->
-      <div class="wp-block-column" style="flex-basis:48%">
+      <!-- wp:column {"className":"pulse-feature-col-side"} -->
+      <div class="wp-block-column pulse-feature-col-side">
         <!-- wp:group {"className":"pulse-blog-image"} -->
         <div class="wp-block-group pulse-blog-image">
           <!-- wp:post-featured-image {"isLink":true} /-->
@@ -57,7 +67,7 @@
 
   <!-- wp:query {"query":{"inherit":true,"offset":1,"perPage":9},"align":"wide","className":"pulse-blog-grid pulse-section","layout":{"type":"grid","columnCount":3}} -->
   <div class="wp-block-query alignwide pulse-blog-grid pulse-section">
-    <!-- wp:post-template {"style":{"spacing":{"blockGap":"0.75rem"}}} -->
+    <!-- wp:post-template {"className":"pulse-post-grid-template"} -->
     <!-- wp:group {"className":"pulse-panel pulse-flow","layout":{"type":"constrained"}} -->
     <div class="wp-block-group pulse-panel pulse-flow">
       <!-- wp:post-title {"isLink":true,"level":3} /-->

@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file.
 
+## 0.2.5 - 2026-04-15
+
+- Improved header structure and interaction polish (wordmark framing, nav active states, refined mobile menu control).
+- Fixed footer social link rendering by removing conflicting logos-only style from the social links block.
+- Expanded template parity for event/issue archives and single content layouts to better match Vercel page composition.
+- Added native `pulse/issue-flipbook` block placement in `single-issue` template for stable issue reader rendering.
+
 ## 0.2.4 - 2026-04-15
 
 - Synced WordPress theme color tokens and Gutenberg palette to the current Vercel source token set for consistent brand rendering.
